@@ -1,12 +1,18 @@
-# Diffusion Model for Data Augmentation in Biological Research
-In biological research, sample size imbalance is a common issue, often caused by the varying characteristics of biological subjects. For instance, when studying cell cycle phases, the sample size for dividing cells is often much smaller due to the relatively short duration of the mitotic phase compared to the interphase.
+# Diffusion Models-based Data Augmentation for Cell Cycle Phase Classification
+This repository contains the code and resources for the project "Diffusion Models-based Data Augmentation for the Cell Cycle Phase Classification". The project applies diffusion models to augment cell cycle image data and improve classification accuracy, especially in scenarios with imbalanced datasets.
 
-This repository presents an experiment using diffusion models for image data augmentation to address this imbalance. While GAN-based models have been widely used for data augmentation, diffusion models have recently shown exceptional performance in image generation tasks.
+Project Overview
+In biological research, imbalanced sample sizes are a common challenge, particularly in cell cycle studies where certain phases (e.g., mitotic phases) have significantly fewer samples compared to others. This project demonstrates how diffusion models can effectively augment cell cycle image data and improve classification performance, specifically in distinguishing between different phases of the cell cycle.
 
-Key Features:
-Diffusion Model for Data Augmentation: The model enhances underrepresented biological images, particularly those of dividing cells.
-Improved Classifier Performance: With the inclusion of augmented data, the classifier's performance improved significantly, increasing the positive predictive value (PPV) from 0.7 to over 0.9.
-Potential Applications: The results suggest that diffusion models are highly effective in addressing sample size imbalance and offer promising applications for data enhancement in various biological studies.
-Results:
-The experimental results demonstrate that data augmentation using the diffusion model leads to a more balanced dataset and improves classification accuracy. This technique shows strong potential for improving models that struggle with data scarcity or imbalanced classes.
+Key Features
+Data Augmentation: Utilizes Denoising Diffusion Probabilistic Models (DDPM) to generate synthetic cell cycle images.
+Classification Enhancement: Demonstrates significant improvements in classification precision, particularly in minority cell phases like mitotic stages.
+Comparison with GAN: Shows how diffusion models perform comparably to GAN-based methods, but with simpler model structures and easier training.
+Methodology
+The project involves:
 
+Dataset: A cell cycle dataset consisting of 32,266 Jurkat cell images across 7 stages: G1, S, G2, prophase, metaphase, anaphase, and telophase. These images are augmented using diffusion models to address the imbalance in the dataset.
+
+Model: Denoising Diffusion Probabilistic Model (DDPM) is used for image generation, adding noise during forward propagation and progressively removing it during backward propagation to generate realistic cell images.
+
+Classification: ResNet architecture is used to classify the cell cycle phases, comparing performance on the original dataset, a dataset augmented with GAN-generated images, and a dataset augmented with DDPM-generated images.
